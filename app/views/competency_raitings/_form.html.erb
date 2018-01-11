@@ -1,0 +1,37 @@
+<%= form_with(model: competency_raiting, local: true) do |form| %>
+  <% if competency_raiting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(competency_raiting.errors.count, "error") %> prohibited this competency_raiting from being saved:</h2>
+
+      <ul>
+      <% competency_raiting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :competency_raiting_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rank %>
+    <%= form.number_field :rank, id: :competency_raiting_rank %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :competency_raiting_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :competency_id %>
+    <%= form.text_field :competency_id, id: :competency_raiting_competency_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
